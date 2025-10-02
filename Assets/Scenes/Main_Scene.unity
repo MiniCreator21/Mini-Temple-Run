@@ -608,7 +608,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &838105306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -621,8 +621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c94e805f40359040be1668a7ffa5621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerRunner
-  forwardSpeed: 8
-  speedIncrease: 0.01
+  speed: 8
+  acceleration: 0.01
+  maxSpeed: 40
   laneWidth: 2
   minLane: -1
   maxLane: 1
@@ -641,7 +642,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
   m_Actions: {fileID: -944628639613478452, guid: 39e0fca763bcc5d4da5d7ca11d94f0b9, type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
@@ -655,39 +656,23 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 6c94e805f40359040be1668a7ffa5621, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 838105306}
+        m_TargetAssemblyTypeName: PlayerRunner, Assembly-CSharp
+        m_MethodName: HandleMovement
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MoveLeft
+          m_StringArgument: HandleMovement
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: b6f3446e-8832-4354-9e47-0f1e8f0e2e6b
-    m_ActionName: 'PlayerControls/MoveLeft[/Keyboard/a,/Keyboard/leftArrow]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11500000, guid: 6c94e805f40359040be1668a7ffa5621, type: 3}
-        m_TargetAssemblyTypeName: UnityEditor.MonoScript, UnityEditor.CoreModule
-        m_MethodName: set_name
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: MoveRight
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: f84012e7-c5d3-405a-b582-07701a7a0448
-    m_ActionName: 'PlayerControls/MoveRight[/Keyboard/d,/Keyboard/rightArrow]'
+    m_ActionId: 29ebda26-2a97-4b84-b6e0-b86b01312344
+    m_ActionName: 'Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: PlayerControls
+  m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &946241896
